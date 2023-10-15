@@ -17,17 +17,22 @@ public class Test {
 		nodeD.addEdge(nodeH, 7);
 		nodeE.addEdge(nodeG, 6); 
 		nodeF.addEdge(nodeG, 1);
+		
 		ISearchAlgo algo1 = new BreadthFirstSearchAlgo();
 		Node result = algo1.execute(nodeS, "G");
 		Node result1 = algo1.execute(nodeS, "A", "G");
 		NodeUtils nodeUtils = new NodeUtils();
-		
 		System.out.println(nodeUtils.printPath(result));
+		System.out.println(nodeUtils.printPath(result1));
 		
 		ISearchAlgo dfsAlgo = new DepthFirstSearchAlgo();
 		Node result2 = dfsAlgo.execute(nodeS, "E");
 		Node result3 = dfsAlgo.execute(nodeS, "E", "G");
         System.out.println(nodeUtils.printPath(result2));
+        System.out.println(nodeUtils.printPath(result3));
 	       
+        ISearchAlgo ucs = new UniformCostSearch();
+        Node result4 = ucs.execute(nodeS, "G");
+        System.out.println(nodeUtils.printPath(result4));
 	}
 }
